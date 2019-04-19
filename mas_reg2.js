@@ -7,8 +7,8 @@
 
    Filename: mas_reg2.js
 
-   Author:  
-   Date:    
+   Author:  Melinda Chirila
+   Date:    4/4/2019
 
 
    Function List

@@ -7,8 +7,8 @@
 
    Filename: mas_register.js
 
-   Author:  
-   Date:    
+   Author:  Melinda Chirila
+   Date:    4/19/2019
    
    Function List
    =============
