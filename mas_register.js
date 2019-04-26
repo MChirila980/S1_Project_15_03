@@ -42,7 +42,8 @@ window.addEventListener("load", function () {
       regForm.elements.sessionBox.onchange = calcCart;
       regForm.elements.mediaCB.onclick = calcCart;
 })
-// Tests whether or not a session package has been selected
+
+//this tests weather the selection package works.
 function sessionsTest() {
       var sessionBox = document.getElementById("sessionBox");
       if (sessionBox.selectedIndex === -1) {
@@ -53,7 +54,7 @@ function sessionsTest() {
 };
 
 function calcCart() {
-      // Gets the values of the fields, and stores the values within variables, so that they can be uused later. The variables are used later on to update the page with the information.
+      //this is function is what stores the values in the variable, the values are then later used so that it can upddate the page with the info.
       sessionStorage.setItem("confName", document.getElementById("fnBox").value + " " + document.getElementById("lnBox").value + "")
       sessionStorage.setItem("confGroup", document.getElementById("groupBox").value)
       sessionStorage.setItem("confMail", document.getElementById("mailBox").value)
@@ -63,7 +64,7 @@ function calcCart() {
       sessionStorage.setItem("confBanquetCost", confBanquet * 55)
       var confBanquetCost = confBanquet * 55;
       var sessionBox = document.getElementById("sessionBox");
-      // Gets what options are selected from the number of people attending the banquet, and whether the person has purchased a media pack, which is stored in variables to be used later
+      //the options that are selected,they are stored to be used later
       if (sessionBox.selectedIndex !== -1) {
             sessionStorage.setItem("confSession", sessionBox[sessionBox.selectedIndex].innerText)
             sessionStorage.setItem("confSessionCost", sessionBox[sessionBox.selectedIndex].value)
@@ -82,8 +83,19 @@ function calcCart() {
             sessionStorage.setItem("confPackCost", 0)
             var confPackCost = 0;
       }
-      // Gets the total amount of money
       sessionStorage.setItem("confTotal", parseFloat(confSessionCost) + parseFloat(confBanquetCost) + parseFloat(confPackCost));
-      //Runs the function that updates the page
+      //function that runs the page
       writeSessionValues();
 };
+
+function writeSessionValues() {
+      //when a user enters heir information this updates the page.
+      document.getElementById("regName").textContent = sessionStorage.getItem("confName");
+      document.getElementById("regGroup").textContent = sessionStorage.getItem("confGroup");
+      document.getElementById("regEmail").textContent = sessionStorage.getItem("confMail");
+      document.getElementById("regPhone").textContent = sessionStorage.getItem("confPhone");
+      document.getElementById("regSession").textContent = sessionStorage.getItem("confSession");
+      document.getElementById("regBanquet").textContent = sessionStorage.getItem("confBanquet");
+      document.getElementById("regPack").textContent = sessionStorage.getItem("confPack");
+      document.getElementById("regTotal").textContent = "$" + sessionStorage.getItem("confTotal")
+}
