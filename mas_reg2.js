@@ -20,7 +20,7 @@
 
 
 */
-
+//
 window.addEventListener("load", writeSessionValues);
 
 function writeSessionValues() {
